@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🤖 RAG Chatbot
 
 A local Retrieval-Augmented Generation (RAG) chatbot built with LangChain, ChromaDB, and Streamlit.
@@ -161,3 +162,6 @@ All settings live in `config.py` and can be overridden via `.env`:
 - The chatbot answers **only** from your documents — it will say "I don't know" if the answer isn't there
 - Run **Build / Rebuild Knowledge Base** every time you add or change documents
 - Your `chroma_db/` folder is auto-generated and excluded from git
+=======
+# RAG-CHATBOT
+>>>>>>> 619e345341b6a689ca1654758e23db58bbd6680a

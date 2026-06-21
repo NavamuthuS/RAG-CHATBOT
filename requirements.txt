@@ -1,0 +1,24 @@
+# ── Core LangChain packages ───────────────────────────────────────────
+langchain                  # Core LangChain framework
+langchain-community        # Community loaders (PyPDFLoader, Docx2txtLoader, Chroma)
+langchain-openai           # OpenAI LLM + Embeddings integration
+langchain-text-splitters   # RecursiveCharacterTextSplitter
+
+# ── Vector Database ───────────────────────────────────────────────────
+chromadb                   # Local persistent vector store
+
+# ── LLM Provider ─────────────────────────────────────────────────────
+openai                     # OpenAI Python SDK (used under the hood by langchain-openai)
+
+# ── Streamlit UI ──────────────────────────────────────────────────────
+streamlit                  # Chat web interface
+
+# ── Document Loaders ──────────────────────────────────────────────────
+pypdf                      # PDF loading (used by PyPDFLoader)
+docx2txt                   # DOCX loading (used by Docx2txtLoader)
+
+# ── Environment Variables ─────────────────────────────────────────────
+python-dotenv              # Loads .env file into os.environ (used in config.py)
+
+# ── Testing ───────────────────────────────────────────────────────────
+pytest                     # Run tests in tests/test_rag.py

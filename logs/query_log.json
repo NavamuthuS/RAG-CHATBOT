@@ -1,0 +1,80 @@
+[
+  {
+    "timestamp": "2026-06-20T05:55:47",
+    "username": "admin",
+    "role": "hr_admin",
+    "question": "hii"
+  },
+  {
+    "timestamp": "2026-06-20T05:56:00",
+    "username": "admin",
+    "role": "hr_admin",
+    "question": "what is anthropic"
+  },
+  {
+    "timestamp": "2026-06-20T05:58:10",
+    "username": "Navamuthu",
+    "role": "manager",
+    "question": "What  is anthropic"
+  },
+  {
+    "timestamp": "2026-06-20T06:16:44",
+    "username": "admin",
+    "role": "hr_admin",
+    "question": "whta is anthropic"
+  },
+  {
+    "timestamp": "2026-06-20T06:18:50",
+    "username": "Yuvaraj",
+    "role": "manager",
+    "question": "How are You"
+  },
+  {
+    "timestamp": "2026-06-20T06:19:25",
+    "username": "Yuvaraj",
+    "role": "manager",
+    "question": "what is claude"
+  },
+  {
+    "timestamp": "2026-06-20T06:19:55",
+    "username": "Yuvaraj",
+    "role": "manager",
+    "question": "What is best feature of claude"
+  },
+  {
+    "timestamp": "2026-06-20T11:47:38",
+    "username": "admin",
+    "role": "hr_admin",
+    "question": "What is an claude AI"
+  },
+  {
+    "timestamp": "2026-06-20T11:50:58",
+    "username": "admin",
+    "role": "hr_admin",
+    "question": "What is an claude AI"
+  },
+  {
+    "timestamp": "2026-06-20T12:06:35",
+    "username": "admin",
+    "role": "hr_admin",
+    "question": "What is an claude AI"
+  },
+  {
+    "timestamp": "2026-06-20T17:40:13",
+    "username": "admin",
+    "role": "hr_admin",
+    "question": "How many casual leave days do I get per year?"
+  },
+  {
+    "timestamp": "2026-06-20T17:41:08",
+    "username": "admin",
+    "role": "hr_admin",
+    "question": "When is salary credited to my bank account every month? Can I work from home on Wednesdays and Fridays? What should I do if someone harasses me at work? How many days of maternity leave am I eligible for? What is the reimbursement limit for internet/mobile expenses? Do I need a VPN while working remotely? What happens if I don't submit my investment declaration on time? What is the company's dress code policy? How long does it take to process my full and final settlement after resignation?"
+  },
+  {
+    "timestamp": "2026-06-20T17:42:42",
+    "username": "admin",
+    "role": "hr_admin",
+    "question": "eththana days leave edukkalam oru employee oru year kku"
+  }
+]

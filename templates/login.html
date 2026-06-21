@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Sign In — HR Policy Assistant{% endblock %}
+{% block body %}
+<div class="auth-wrapper">
+  <div class="card">
+    <h2 style="margin-top:0;">🗂️ Internal HR Policy Assistant</h2>
+    <p style="color:var(--text-secondary); font-size:14px; margin-top:-8px;">
+      Sign in with an existing account, or sign up as a new Employee/Manager.
+    </p>
+
+    <div class="auth-tabs">
+      <a href="#signin" class="auth-tab {% if active_tab != 'signup' %}active{% endif %}" onclick="showTab('signin')" id="tab-signin">🔑 Sign In</a>
+      <a href="#signup" class="auth-tab {% if active_tab == 'signup' %}active{% endif %}" onclick="showTab('signup')" id="tab-signup">📝 Sign Up</a>
+    </div>
+
+    <!-- ---------- SIGN IN ---------- -->
+    <div id="panel-signin" style="{% if active_tab == 'signup' %}display:none;{% endif %}">
+      {% if error %}<div class="alert alert-error">❌ {{ error }}</div>{% endif %}
+      {% if signup_success %}<div class="alert alert-success">✅ {{ signup_success }}</div>{% endif %}
+
+      <form method="POST" action="{{ url_for('login') }}">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="btn-primary btn-block">Sign In</button>
+      </form>
+    </div>
+
+    <!-- ---------- SIGN UP ---------- -->
+    <div id="panel-signup" style="{% if active_tab != 'signup' %}display:none;{% endif %}">
+      <div class="alert alert-info">
+        New employees/managers can create their own account here.
+        <strong>HR Admin accounts can only be created by an existing HR Admin</strong>
+        (via the sidebar after they log in) — this keeps confidential HR data
+        from being self-granted.
+      </div>
+
+      {% if signup_error %}<div class="alert alert-error">❌ {{ signup_error }}</div>{% endif %}
+
+      <form method="POST" action="{{ url_for('signup') }}">
+        <label for="su_username">Choose a username</label>
+        <input type="text" id="su_username" name="username" required>
+
+        <label for="su_password">Choose a password</label>
+        <input type="password" id="su_password" name="password" required>
+
+        <label for="su_confirm">Confirm password</label>
+        <input type="password" id="su_confirm" name="confirm" required>
+
+        <label for="su_role">I am a...</label>
+        <select id="su_role" name="role" required>
+          {% for r in self_signup_roles %}
+          <option value="{{ r }}">{{ r.replace('_', ' ').title() }}</option>
+          {% endfor %}
+        </select>
+
+        <button type="submit" class="btn-primary btn-block">Create Account</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTab(tab) {
+    document.getElementById('panel-signin').style.display = (tab === 'signin') ? 'block' : 'none';
+    document.getElementById('panel-signup').style.display = (tab === 'signup') ? 'block' : 'none';
+    document.getElementById('tab-signin').classList.toggle('active', tab === 'signin');
+    document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
+  }
+</script>
+{% endblock %}

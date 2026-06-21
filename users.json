@@ -1,0 +1,22 @@
+{
+  "admin": {
+    "password_hash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+    "role": "hr_admin"
+  },
+  "Navamuthu": {
+    "password_hash": "1b58a04042cfb7e75807d98b8c72fa8843e0789e65d6bbd9d0bb0ced279b60c9",
+    "role": "manager"
+  },
+  "Mathavan": {
+    "password_hash": "781dff6d6796eded0aa41f6fbd1ca5300f052f84db94f23bd82ecdedd6449a6c",
+    "role": "employee"
+  },
+  "Yuvaraj": {
+    "password_hash": "d390dc28908ce2e33da77b31baf4efe3d401c8ae755d9984f6cf0ddc2542ee8a",
+    "role": "manager"
+  },
+  "NAVAMUTHU": {
+    "password_hash": "d6f69a587931f1e982b2931aff7bf1c1afec59b86c0e42b9104e79cd9f354788",
+    "role": "hr_admin"
+  }
+}

@@ -1,0 +1,295 @@
+/* ──────────────────────────────────────────────
+   HR Policy Assistant — Clean Minimal Corporate Theme
+   Tokens: background #F7F8FA, surface #FFFFFF, text #1F2A37,
+   secondary text #6B7280, accent #2F5D62, border #E3E6EA
+   ────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #F7F8FA;
+  --surface: #FFFFFF;
+  --text: #1F2A37;
+  --text-secondary: #6B7280;
+  --accent: #2F5D62;
+  --accent-light: #E6EEEE;
+  --border: #E3E6EA;
+  --success: #2F7D58;
+  --danger: #B3261E;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ---------- Top header ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+
+.topbar .brand {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.role-badge {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.topbar .user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.logout-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+}
+.logout-link:hover { background: var(--bg); }
+
+/* ---------- Layout ---------- */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 57px);
+}
+
+.sidebar {
+  width: 280px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.main {
+  flex: 1;
+  padding: 24px;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Buttons ---------- */
+button, .btn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: #244a4d; }
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover { background: var(--bg); }
+
+.btn-danger {
+  background: #fff;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+.btn-danger:hover { background: #fdecea; }
+
+.btn-block { width: 100%; }
+
+/* ---------- Forms ---------- */
+input[type="text"], input[type="password"], select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  margin-bottom: 12px;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ---------- Login / Signup ---------- */
+.auth-wrapper {
+  max-width: 420px;
+  margin: 60px auto;
+}
+
+.auth-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.auth-tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.auth-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.alert {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+.alert-error { background: #fdecea; color: var(--danger); }
+.alert-success { background: var(--accent-light); color: var(--accent); }
+.alert-info { background: #F0F4F4; color: var(--text-secondary); }
+
+/* ---------- Chat ---------- */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius) var(--radius) 4px var(--radius);
+}
+
+.bubble.assistant {
+  align-self: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius) var(--radius) var(--radius) 4px;
+  color: var(--text);
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+  position: sticky;
+  bottom: 16px;
+}
+
+.chat-input-row input {
+  margin-bottom: 0;
+}
+
+.msg-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  align-self: flex-start;
+}
+
+.icon-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.icon-btn:hover { background: var(--bg); }
+
+/* ---------- Analytics ---------- */
+.metric {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.metric-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+ul.clean-list { list-style: none; padding: 0; margin: 0; }
+ul.clean-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+ul.clean-list li:last-child { border-bottom: none; }

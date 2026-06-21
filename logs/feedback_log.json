@@ -1,0 +1,16 @@
+[
+  {
+    "timestamp": "2026-06-20T06:16:50",
+    "username": "admin",
+    "question": "whta is anthropic",
+    "answer": "Anthropic is an AI safety company.",
+    "rating": "up"
+  },
+  {
+    "timestamp": "2026-06-20T11:51:01",
+    "username": "admin",
+    "question": "What is an claude AI",
+    "answer": "Claude is an AI assistant.",
+    "rating": "down"
+  }
+]

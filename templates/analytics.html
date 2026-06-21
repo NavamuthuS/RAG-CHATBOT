@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Analytics — HR Policy Assistant{% endblock %}
+{% block body %}
+
+<div class="topbar">
+  <div class="brand">🗂️ HR Policy Assistant</div>
+  <div class="user-info">
+    <span class="role-badge">{{ role.replace('_', ' ') }}</span>
+    <span>👤 {{ username }}</span>
+    <a href="{{ url_for('chat') }}" class="logout-link">💬 Back to Chat</a>
+    <a href="{{ url_for('logout') }}" class="logout-link">🚪 Log Out</a>
+  </div>
+</div>
+
+<div class="main" style="max-width:900px;">
+  <h2>📊 Analytics (HR Admin only)</h2>
+
+  <div style="display:flex; gap:16px; flex-wrap:wrap;">
+    <div class="card" style="flex:1; min-width:280px;">
+      <h3>Top Asked Questions</h3>
+      {% if top_questions %}
+        <ul class="clean-list">
+          {% for q, count in top_questions %}
+            <li>{{ q }} <span style="color:var(--text-secondary);">×{{ count }}</span></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p style="color:var(--text-secondary); font-size:14px;">No queries logged yet.</p>
+      {% endif %}
+    </div>
+
+    <div class="card" style="flex:1; min-width:280px;">
+      <h3>Feedback Stats</h3>
+      <div class="metric">{{ "%.0f"|format(stats.get('positive_pct', 0)) }}%</div>
+      <div class="metric-label">Positive feedback</div>
+
+      {% set negative_qas = stats.get('negative_qas', []) %}
+      {% if negative_qas %}
+        <p style="margin-top:16px; font-weight:600; font-size:13px;">Negatively-rated answers to review:</p>
+        <ul class="clean-list">
+          {% for qa in negative_qas[:5] %}
+            <li>❓ {{ qa.get('question', '') }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p style="color:var(--text-secondary); font-size:14px; margin-top:16px;">No negative feedback yet.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

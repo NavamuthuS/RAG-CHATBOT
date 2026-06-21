@@ -1,0 +1,77 @@
+CODE OF CONDUCT POLICY — Acme Technologies Pvt Ltd
+=====================================================
+
+1. PURPOSE
+This Code of Conduct sets out the standards of behaviour expected from
+every employee, contractor, and intern at Acme Technologies, to maintain
+a safe, respectful, and professional workplace.
+
+2. PROFESSIONAL BEHAVIOUR
+Employees are expected to:
+- Treat colleagues, clients, and vendors with respect and courtesy.
+- Communicate professionally in all written and verbal interactions,
+  including on internal chat tools and email.
+- Avoid discrimination or harassment based on gender, religion, caste,
+  disability, sexual orientation, age, or any other protected
+  characteristic.
+
+3. ANTI-HARASSMENT AND POSH POLICY
+Acme Technologies has zero tolerance for sexual harassment in the
+workplace, in line with the Prevention of Sexual Harassment (POSH) Act,
+2013. Any employee facing or witnessing harassment can report it
+confidentially to the Internal Committee (IC) or escalate directly
+through the HR chatbot. Retaliation against a complainant or witness is
+strictly prohibited and will itself be treated as a serious violation.
+
+4. CONFLICT OF INTEREST
+Employees must disclose any situation where personal interests (e.g.,
+financial interest in a vendor, hiring a relative, side business in a
+competing space) could conflict with the company's interests. Undisclosed
+conflicts of interest may lead to disciplinary action.
+
+5. CONFIDENTIALITY AND DATA PROTECTION
+- All employees must protect confidential company information, customer
+  data, and intellectual property, both during and after employment.
+- Sharing confidential information with unauthorized persons, on social
+  media, or with competitors is a serious violation and may lead to
+  termination and legal action.
+- Employees must follow the company's Data Security guidelines, including
+  using VPN for remote access (see WFH Policy) and not storing company
+  data on personal devices or personal cloud storage.
+
+6. USE OF COMPANY ASSETS
+Company assets (laptops, software licenses, official email, etc.) must be
+used primarily for work purposes. Limited personal use is permitted as
+long as it does not interfere with work, violate any law, or involve
+illegal downloads, harassment, or accessing inappropriate content.
+
+7. ANTI-BRIBERY AND GIFTS
+Employees must not accept or offer bribes, kickbacks, or gifts above
+₹2,000 in value from/to vendors, clients, or partners in connection with
+business dealings. Gifts above this value must be disclosed to HR and may
+need to be declined or surrendered.
+
+8. SUBSTANCE USE
+Employees must not be under the influence of alcohol or any intoxicating
+substance during work hours or while on office/client premises. Violation
+may lead to immediate suspension pending investigation.
+
+9. DRESS CODE
+The company follows a "smart casual" dress code on regular days. Formal
+business attire is expected on days with client visits, leadership town
+halls, or official events, as communicated in advance by the respective
+team or HR.
+
+10. DISCIPLINARY PROCESS
+Violations of this Code of Conduct will be investigated by HR, and may
+result in a verbal warning, written warning, performance improvement
+plan, suspension, or termination, depending on the severity and history
+of the violation. Employees under investigation will be given a fair
+opportunity to respond before any action is taken.
+
+11. REPORTING A CONCERN
+Any employee who witnesses or experiences a violation of this Code can
+report it confidentially using the chatbot's "Escalate to HR" button, or
+by emailing conduct@acmetech.example.com. All reports are handled with
+strict confidentiality, and retaliation against anyone reporting in good
+faith is strictly prohibited.

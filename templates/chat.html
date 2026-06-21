@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% block title %}Chat — HR Policy Assistant{% endblock %}
+{% block body %}
+
+<div class="topbar">
+  <div class="brand">🗂️ HR Policy Assistant</div>
+  <div class="user-info">
+    <span class="role-badge">{{ role.replace('_', ' ') }}</span>
+    <span>👤 {{ username }}</span>
+    {% if role == 'hr_admin' %}
+      <a href="{{ url_for('analytics') }}" class="logout-link">📊 Analytics</a>
+    {% endif %}
+    <a href="{{ url_for('logout') }}" class="logout-link">🚪 Log Out</a>
+  </div>
+</div>
+
+<div class="layout">
+  <!-- ───────────── SIDEBAR ───────────── -->
+  <div class="sidebar">
+
+    {% if role == 'hr_admin' %}
+    <div class="card">
+      <h3>📚 Knowledge Base</h3>
+      <button class="btn-secondary btn-block" id="rebuild-kb-btn" onclick="rebuildKB()">
+        🔄 Build / Rebuild Knowledge Base
+      </button>
+      <div id="kb-status" style="margin-top:10px; font-size:13px;"></div>
+    </div>
+
+    <div class="card">
+      <h3>➕ Add HR Admin / Team Member</h3>
+      <p style="font-size:12px; color:var(--text-secondary); margin-top:-6px;">
+        Only HR Admins can grant the HR Admin role to someone.
+      </p>
+
+      {% if admin_message %}
+        <div class="alert {% if admin_status == 'ok' %}alert-success{% else %}alert-error{% endif %}">
+          {% if admin_status == 'ok' %}✅{% else %}❌{% endif %} {{ admin_message }}
+        </div>
+      {% endif %}
+
+      <form method="POST" action="{{ url_for('admin_add_user') }}">
+        <label for="admin_username">New username</label>
+        <input type="text" id="admin_username" name="username" required>
+
+        <label for="admin_password">Temporary password</label>
+        <input type="password" id="admin_password" name="password" required>
+
+        <label for="admin_role">Role</label>
+        <select id="admin_role" name="role" required>
+          {% for r in valid_roles %}
+          <option value="{{ r }}">{{ r.replace('_', ' ').title() }}</option>
+          {% endfor %}
+        </select>
+
+        <button type="submit" class="btn-primary btn-block">Create Account</button>
+      </form>
+    </div>
+    {% endif %}
+
+    <div class="card">
+      <h3>📄 Export</h3>
+      <a href="{{ url_for('export_pdf') }}" class="btn btn-secondary btn-block" style="display:block; text-align:center; text-decoration:none;">
+        ⬇️ Export conversation as PDF
+      </a>
+    </div>
+  </div>
+
+  <!-- ───────────── MAIN CHAT ───────────── -->
+  <div class="main">
+    <h3 style="margin-top:0;">💬 Ask about HR policy</h3>
+
+    <div class="chat-window" id="chat-window">
+      {% for msg in messages %}
+        <div class="bubble {{ msg.role }}">{{ msg.content }}</div>
+        {% if msg.role == 'assistant' and loop.last %}
+          <div class="msg-actions" id="msg-actions" data-question="" data-answer="{{ msg.content | e }}"></div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="chat-input-row">
+      <input type="text" id="question-input" placeholder="Type your HR policy question..." onkeydown="if(event.key==='Enter') askQuestion();">
+      <button class="btn-primary" onclick="askQuestion()">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let lastQuestion = "";
+let lastAnswer = "";
+
+function appendBubble(role, text) {
+  const win = document.getElementById('chat-window');
+  const div = document.createElement('div');
+  div.className = 'bubble ' + role;
+  div.textContent = text;
+  win.appendChild(div);
+  win.scrollTop = win.scrollHeight;
+  return div;
+}
+
+function appendActions(question, answer, escalate) {
+  const win = document.getElementById('chat-window');
+  const wrap = document.createElement('div');
+  wrap.className = 'msg-actions';
+
+  const up = document.createElement('button');
+  up.className = 'icon-btn';
+  up.textContent = '👍';
+  up.onclick = () => sendFeedback(question, answer, 'positive', up);
+
+  const down = document.createElement('button');
+  down.className = 'icon-btn';
+  down.textContent = '👎';
+  down.onclick = () => sendFeedback(question, answer, 'negative', down);
+
+  wrap.appendChild(up);
+  wrap.appendChild(down);
+
+  if (escalate) {
+    const esc = document.createElement('button');
+    esc.className = 'icon-btn';
+    esc.style.color = 'var(--danger)';
+    esc.textContent = '🚩 Escalate to HR';
+    esc.onclick = () => sendEscalate(question, esc);
+    wrap.appendChild(esc);
+  }
+
+  win.appendChild(wrap);
+  win.scrollTop = win.scrollHeight;
+}
+
+async function askQuestion() {
+  const input = document.getElementById('question-input');
+  const question = input.value.trim();
+  if (!question) return;
+
+  input.value = "";
+  appendBubble('user', question);
+  const thinking = appendBubble('assistant', 'Looking through HR policies...');
+
+  try {
+    const res = await fetch('/api/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question })
+    });
+    const data = await res.json();
+
+    thinking.textContent = data.answer;
+    lastQuestion = question;
+    lastAnswer = data.answer;
+    appendActions(question, data.answer, data.escalate);
+  } catch (e) {
+    thinking.textContent = "⚠️ Something went wrong reaching the server.";
+  }
+}
+
+async function sendFeedback(question, answer, rating, btn) {
+  await fetch('/api/feedback', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ question, answer, rating })
+  });
+  btn.textContent = rating === 'positive' ? '👍 Thanks!' : '👎 Noted';
+  btn.disabled = true;
+}
+
+async function sendEscalate(question, btn) {
+  await fetch('/api/escalate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ question })
+  });
+  btn.textContent = '✅ Escalated to HR';
+  btn.disabled = true;
+}
+
+async function rebuildKB() {
+  const status = document.getElementById('kb-status');
+  status.textContent = '⏳ Rebuilding... this may take a while.';
+  try {
+    const res = await fetch('/admin/rebuild_kb', { method: 'POST' });
+    const data = await res.json();
+    status.textContent = (data.status === 'ok' ? '✅ ' : '❌ ') + data.message;
+  } catch (e) {
+    status.textContent = '❌ Failed to rebuild knowledge base.';
+  }
+}
+</script>
+{% endblock %}

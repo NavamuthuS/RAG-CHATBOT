@@ -1,0 +1,64 @@
+WORK FROM HOME (WFH) & REMOTE WORK POLICY — Acme Technologies Pvt Ltd
+========================================================================
+
+1. ELIGIBILITY
+This policy applies to all confirmed employees whose role does not
+require mandatory on-site presence (e.g., manufacturing, security,
+front-desk, lab operations). Employees on probation may request WFH only
+with explicit manager approval, evaluated case by case.
+
+2. HYBRID WORK MODEL
+The company follows a hybrid work model:
+- Monday, Tuesday, Thursday: Mandatory in-office days for all
+  office-based teams.
+- Wednesday and Friday: Optional Work From Home.
+Teams may follow a different in-office schedule if approved by their
+department head and published on the internal wiki.
+
+3. FULLY REMOTE EMPLOYEES
+Employees hired explicitly as "Remote" (as stated in their offer letter)
+are exempt from the in-office requirement but are expected to visit the
+nearest office at least once per quarter for team connect sessions, at
+company expense.
+
+4. REQUESTING ADDITIONAL WFH DAYS
+For WFH beyond the standard policy (e.g., due to medical reasons, family
+emergency, or relocation), employees must submit a request through the
+HR portal at least 2 working days in advance, along with a reason. Such
+requests are approved at the discretion of the reporting manager.
+
+5. WORK HOURS AND AVAILABILITY
+Regardless of work location, employees are expected to be available
+during core hours: 10:30 AM to 4:30 PM IST. Employees must keep their
+calendar and chat status updated to reflect their availability.
+
+6. EQUIPMENT AND INTERNET
+The company provides a laptop and basic peripherals for remote work.
+Employees working remotely for more than 2 days a week are eligible for
+the internet reimbursement described in the Payroll & Compensation
+Policy (up to ₹1,500/month).
+
+7. DATA SECURITY WHILE WORKING REMOTELY
+- Company laptops must always be used with VPN enabled when accessing
+  internal systems from outside the office network.
+- Employees must not work on shared/public Wi-Fi for tasks involving
+  confidential company or customer data.
+- Screens must be locked when away from the device, and confidential
+  conversations should not happen in public spaces.
+
+8. PERFORMANCE EXPECTATIONS
+Working remotely does not change performance expectations. Deliverables,
+deadlines, and meeting attendance are evaluated the same way regardless
+of work location. Repeated unavailability during core hours while marked
+as WFH may be treated as a conduct issue.
+
+9. WORKING FROM A DIFFERENT CITY OR COUNTRY
+Employees wishing to work temporarily from a different city for more than
+2 weeks (e.g., visiting family) must inform HR for tax, compliance, and
+insurance purposes. Working from outside India requires prior written
+approval from HR and Legal due to data protection and tax regulations.
+
+10. CONTACT
+For WFH requests beyond standard policy or equipment issues, raise a
+ticket via the chatbot's "Escalate to HR" option or email
+peopleops@acmetech.example.com.

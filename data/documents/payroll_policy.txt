@@ -1,0 +1,65 @@
+PAYROLL & COMPENSATION POLICY — Acme Technologies Pvt Ltd
+============================================================
+
+1. SALARY CYCLE AND DISBURSEMENT
+Salaries are processed on a monthly basis and credited to the employee's
+registered bank account on the last working day of each month. If the
+last working day falls on a weekend or public holiday, salary will be
+credited on the preceding working day.
+
+2. SALARY STRUCTURE
+Every employee's salary (Cost to Company / CTC) is divided into the
+following components:
+- Basic Pay: 40% of CTC
+- House Rent Allowance (HRA): 20% of Basic Pay
+- Special Allowance: balancing component
+- Provident Fund (PF) Employer Contribution: 12% of Basic Pay
+- Gratuity: as per the Payment of Gratuity Act, accrued but paid only on
+  separation after 5 years of continuous service
+- Performance Bonus: variable, paid annually based on appraisal rating
+
+3. PAYSLIPS AND TAX DOCUMENTS
+Payslips are generated automatically and available for download from the
+HR portal by the 2nd working day of every month. Form 16 (annual tax
+certificate) is issued by the end of June each financial year.
+
+4. INCOME TAX AND DEDUCTIONS
+Income tax (TDS) is deducted at source as per the income tax slab
+declared by the employee. Employees must submit investment declarations
+(Section 80C, 80D, HRA proofs, etc.) by 15th December of each financial
+year to avoid excess tax deduction in the last quarter.
+
+5. REIMBURSEMENTS
+- Internet/mobile reimbursement: up to ₹1,500 per month for employees
+  working in a hybrid or remote capacity, on submission of bills.
+- Travel reimbursement for official work: actuals, with prior manager
+  approval and original bills/e-receipts submitted within 30 days.
+- Reimbursement claims older than 60 days will not be processed.
+
+6. SALARY REVISIONS AND PROMOTIONS
+Salary revisions are typically reviewed once a year during the annual
+appraisal cycle (April). Off-cycle revisions may happen in case of an
+internal promotion, role change, or retention case, subject to manager
+and HR Business Partner approval.
+
+7. FULL AND FINAL SETTLEMENT (F&F)
+On resignation or termination, the Full and Final settlement — including
+pending salary, earned leave encashment, gratuity (if eligible), and any
+deductions for notice period shortfall or company property not returned —
+will be processed within 45 days of the last working day.
+
+8. LOANS AND ADVANCES
+Employees who have completed 1 year of service may request a salary
+advance of up to 1 month's basic pay, recoverable in equal installments
+over a maximum of 6 months, subject to HR and Finance approval.
+
+9. BANK DETAILS AND ERRORS
+Employees are responsible for keeping their bank account details updated
+in the HR portal. The company is not liable for delays in salary credit
+caused by incorrect or outdated bank information provided by the
+employee.
+
+10. CONTACT
+For payslip issues, tax declaration help, or reimbursement queries,
+employees can raise a ticket via the chatbot's "Escalate to HR" option or
+email payroll@acmetech.example.com.

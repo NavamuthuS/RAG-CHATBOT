@@ -1844,4 +1844,4 @@ def analytics_route():
 if __name__ == "__main__":
     os.makedirs(EXPORT_DIR, exist_ok=True)
     os.makedirs(HISTORY_DIR, exist_ok=True)
-    app.run(debug=False, port=5000, threaded=False, processes=1)
+    

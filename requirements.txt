@@ -9,3 +9,4 @@ docx2txt
 python-dotenv
 faiss-cpu
 reportlab
+langchain-chroma

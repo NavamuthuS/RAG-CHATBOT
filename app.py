@@ -30,6 +30,7 @@ own built-in APIs - no extra paid services required unless noted):
 - Keyword highlighting in bot answers    (server-side regex -> <mark> tags)
 - User profile page                      (/profile)
 - Confidence score on answers            (heuristic - see compute_confidence())
+- Password show/hide eye-toggle on Sign In + Sign Up forms (pure HTML/JS)
 
 IMPORTANT, please read:
 - Voice input/output and the theme toggle work 100% inside the browser, so
@@ -437,7 +438,10 @@ def send_escalation_email(ticket):
         req = urllib.request.Request(
             "https://api.emailjs.com/api/v1.0/email/send",
             data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Content-Type": "application/json",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            },
             method="POST",
         )
         with urllib.request.urlopen(req, timeout=10) as resp:
@@ -575,6 +579,12 @@ LOGIN_HTML = r"""<!DOCTYPE html>
   .tab.active { color: #6c8cff; border-bottom-color: #3b4fd8; }
   .panel { display: none; }
   .panel.active { display: block; }
+  /* NEW: password show/hide eye-toggle */
+  .pwd-wrap { position: relative; margin-bottom: 16px; }
+  .pwd-wrap input { margin-bottom: 0; padding-right: 38px; }
+  .pwd-toggle { position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+                cursor: pointer; font-size: 16px; user-select: none; opacity: 0.7; line-height: 1; }
+  .pwd-toggle:hover { opacity: 1; }
 </style>
 </head>
 <body>
@@ -595,7 +605,10 @@ LOGIN_HTML = r"""<!DOCTYPE html>
         <label for="username">Username</label>
         <input type="text" id="username" name="username" autocomplete="username" required>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" autocomplete="current-password" required>
+        <div class="pwd-wrap">
+          <input type="password" id="password" name="password" autocomplete="current-password" required>
+          <span class="pwd-toggle" onclick="togglePwd('password', this)">&#128065;</span>
+        </div>
         <button type="submit">Sign In</button>
       </form>
       <p class="hint">First time running this app? Default HR admin login is
@@ -616,9 +629,15 @@ LOGIN_HTML = r"""<!DOCTYPE html>
         <label for="su_username">Choose a username</label>
         <input type="text" id="su_username" name="username" required>
         <label for="su_password">Choose a password</label>
-        <input type="password" id="su_password" name="password" required>
+        <div class="pwd-wrap">
+          <input type="password" id="su_password" name="password" required>
+          <span class="pwd-toggle" onclick="togglePwd('su_password', this)">&#128065;</span>
+        </div>
         <label for="su_confirm">Confirm password</label>
-        <input type="password" id="su_confirm" name="confirm" required>
+        <div class="pwd-wrap">
+          <input type="password" id="su_confirm" name="confirm" required>
+          <span class="pwd-toggle" onclick="togglePwd('su_confirm', this)">&#128065;</span>
+        </div>
         <label for="su_role">I am a...</label>
         <select id="su_role" name="role" required>
           __SIGNUP_ROLE_OPTIONS__
@@ -633,6 +652,18 @@ LOGIN_HTML = r"""<!DOCTYPE html>
       document.getElementById('panel-signup').classList.toggle('active', tab === 'signup');
       document.getElementById('tab-signin').classList.toggle('active', tab === 'signin');
       document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
+    }
+
+    // NEW: password show/hide eye-toggle (Sign In + Sign Up forms)
+    function togglePwd(inputId, iconEl) {
+      var input = document.getElementById(inputId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        iconEl.innerHTML = '&#128064;';
+      } else {
+        input.type = 'password';
+        iconEl.innerHTML = '&#128065;';
+      }
     }
   </script>
 </body>
@@ -1242,8 +1273,26 @@ function sendMsg() {
           var actionsId = thinkId + '_actions';
           var escalateHtml = '';
           if (res.escalate) {
-            escalateHtml = '<button class="icon-btn escalate" onclick="escalate(this, ' +
-              JSON.stringify(q) + ')">Escalate to HR</button>';
+            var safeQuestion = encodeURIComponent(q);
+
+escalateHtml =
+  '<button class="icon-btn escalate" data-question="' +
+  safeQuestion +
+  '">Escalate to HR</button>';
+  setTimeout(function () {
+  document.querySelectorAll('.icon-btn.escalate').forEach(function(btn) {
+    if (!btn.dataset.bound) {
+      btn.dataset.bound = "1";
+
+      btn.addEventListener('click', function() {
+        escalate(
+          this,
+          decodeURIComponent(this.dataset.question)
+        );
+      });
+    }
+  });
+}, 0);
           }
 
           var html =

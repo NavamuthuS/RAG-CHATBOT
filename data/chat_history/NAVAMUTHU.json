@@ -33,5 +33,75 @@
     "question": "i need for for 2 weeks pls inform my HR",
     "answer": "To apply for leave, you must do so through the HR portal at least 24 hours in advance. Your reporting manager will receive an approval request, and leave is considered approved only after manager sign-off in the system. Informing the manager verbally is not sufficient for approval.",
     "timestamp": "2026-06-21T08:33:31"
+  },
+  {
+    "question": "Hii",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T08:02:45"
+  },
+  {
+    "question": "Hii",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T08:10:02"
+  },
+  {
+    "question": "Hii",
+    "answer": "Error: Error embedding content (UNAUTHENTICATED): 401 UNAUTHENTICATED. {'error': {'code': 401, 'message': 'Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'ACCESS_TOKEN_TYPE_UNSUPPORTED', 'metadata': {'method': 'google.ai.generativelanguage.v1beta.GenerativeService.BatchEmbedContents', 'service': 'generativelanguage.googleapis.com'}}]}}",
+    "timestamp": "2026-06-22T08:17:59"
+  },
+  {
+    "question": "Hii",
+    "answer": "Error: Error embedding content (UNAUTHENTICATED): 401 UNAUTHENTICATED. {'error': {'code': 401, 'message': 'Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'ACCESS_TOKEN_TYPE_UNSUPPORTED', 'metadata': {'service': 'generativelanguage.googleapis.com', 'method': 'google.ai.generativelanguage.v1beta.GenerativeService.BatchEmbedContents'}}]}}",
+    "timestamp": "2026-06-22T08:19:57"
+  },
+  {
+    "question": "Hii",
+    "answer": "Error: Error embedding content (UNAUTHENTICATED): 401 UNAUTHENTICATED. {'error': {'code': 401, 'message': 'Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'ACCESS_TOKEN_TYPE_UNSUPPORTED', 'metadata': {'method': 'google.ai.generativelanguage.v1beta.GenerativeService.BatchEmbedContents', 'service': 'generativelanguage.googleapis.com'}}]}}",
+    "timestamp": "2026-06-22T13:16:29"
+  },
+  {
+    "question": "Hii",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T13:26:49"
+  },
+  {
+    "question": "Hii",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T13:28:36"
+  },
+  {
+    "question": "Hii",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T13:31:32"
+  },
+  {
+    "question": "Hii",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T13:35:27"
+  },
+  {
+    "question": "Hii",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T13:45:24"
+  },
+  {
+    "question": "How are you ?",
+    "answer": "Error: Error embedding content: [Errno 11001] getaddrinfo failed",
+    "timestamp": "2026-06-22T13:55:10"
+  },
+  {
+    "question": "How are you ?",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T13:57:22"
+  },
+  {
+    "question": "How are you ?",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T13:59:56"
+  },
+  {
+    "question": "create a leave form ?",
+    "answer": "I don't know based on the provided documents.",
+    "timestamp": "2026-06-22T19:28:21"
   }
 ]

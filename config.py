@@ -12,17 +12,46 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ──────────────────────────────────────────────
-# Google Gemini API Key (required)
+# Google Gemini API Key(s) (required)
 # ──────────────────────────────────────────────
-GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
+# NEW: Support MULTIPLE Gemini API keys so the app can automatically rotate
+# to the next key when one hits its free-tier quota/rate limit, instead of
+# the whole chatbot breaking.
+#
+# In your .env file, set GEMINI_API_KEYS as a COMMA-SEPARATED list:
+#
+#   GEMINI_API_KEYS=AIzaSy_first_key_here,AIzaSy_second_key_here,AIzaSy_third_key_here
+#
+# (Get extra free keys the same way as before — https://aistudio.google.com/apikey —
+# using a different Google account for each one, then add them all here separated
+# by commas, no spaces needed around the commas.)
+#
+# Backward compatible: if you still only have the old single GEMINI_API_KEY set,
+# everything keeps working exactly as before — it's just treated as a list of 1.
+_raw_keys = os.getenv("GEMINI_API_KEYS", "").strip()
+_single_key = os.getenv("GEMINI_API_KEY", "").strip()
 
-if not GEMINI_API_KEY:
+if _raw_keys:
+    GEMINI_API_KEYS = [k.strip() for k in _raw_keys.split(",") if k.strip()]
+elif _single_key:
+    GEMINI_API_KEYS = [_single_key]
+else:
+    GEMINI_API_KEYS = []
+
+if not GEMINI_API_KEYS:
     raise EnvironmentError(
-        "GEMINI_API_KEY is not set. "
-        "Please copy .env.example to .env and fill in your key."
+        "No Gemini API key found. "
+        "Please set GEMINI_API_KEYS (comma-separated, recommended) or "
+        "GEMINI_API_KEY in your .env file. "
+        "Copy .env.example to .env and fill in your key(s)."
     )
 
-# Make the key available to the Google SDK automatically
+# Kept for backward compatibility — anything in this project that still imports
+# the old single GEMINI_API_KEY (e.g. the embeddings model, personal-document
+# upload feature in app.py) just uses the FIRST key in the list.
+GEMINI_API_KEY: str = GEMINI_API_KEYS[0]
+
+# Make the first key available to the Google SDK automatically
 os.environ["GOOGLE_API_KEY"] = GEMINI_API_KEY
 
 # ──────────────────────────────────────────────

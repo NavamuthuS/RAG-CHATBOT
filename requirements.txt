@@ -11,3 +11,4 @@ faiss-cpu
 reportlab
 langchain-chroma
 pymongo
+fpdf
